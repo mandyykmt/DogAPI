@@ -1,0 +1,26 @@
+<table>
+  <tbody>
+    <tr>
+      <td *ngIf="observable$ | async as o else noImage">
+        <img [src]="o.message" width="400">
+      </td>
+      <td></td>
+      <td *ngIf="promise$ | async as p else noImage">
+        <img [src]="p.message" width="400">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button type="button" (click)="getAsObservable()">Get as Observable</button>
+      </td>
+      <td></td>
+      <td>
+        <button type="button" (click)="getAsPromise()">Get as Promise</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noImage>
+  <img src="https://theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png" width="400">
+</ng-template>
